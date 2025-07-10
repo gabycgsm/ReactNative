@@ -3,8 +3,9 @@ import { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import { getPersonajes } from './lib/rickyMorty';
 import { ScrollView } from 'react-native-web';
-import  Logo  from './components/Logo';
+import Logo from './components/Logo';
 import { CharacterCard } from './components/CharacterCard';
+import { Main } from './components/Main';
 
 export default function App() {
 
@@ -20,18 +21,14 @@ export default function App() {
   }, []);
 
   return (
-    
-      <View style={styles.container}>
-        <StatusBar style='light' />
-        <Logo style={styles.logo} />
-        <ScrollView>
-        {personajes.map((character) => (
-          
-          <CharacterCard character={character}/>
-        ))}
-        </ScrollView>
-      </View>
-    
+
+    <View style={styles.container}>
+      <StatusBar style='light' />
+      <Logo style={styles.logo} />
+
+      <Main></Main>
+    </View>
+
   );
 }
 
@@ -42,7 +39,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  
+
   logo: {
     backgroundColor: '#fff',
     padding: 20
