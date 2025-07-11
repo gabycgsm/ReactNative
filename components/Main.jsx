@@ -18,21 +18,22 @@ export function Main() {
 
 
     return (
-        {personajes.lenght === 0 ? (
-            <ActivityIndicator size={"large"}/>
-        ):(
-            <FlatList
-                data={personajes}
-                keyExtractor={(item) => item.id.toString()}
-                renderItem={
-                    ({item, index}) => {
-                        <CharacterCard character={item} index={index} />
-                    }
-                }></FlatList>
-        )
-            
-        }
+        <>
+            {personajes.lenght === 0 ? (
+                <ActivityIndicator size={"large"} />
+            ) : (
+                <FlatList
+                    data={personajes}
+                    keyExtractor={(item) => item.id.toString()}
+                    renderItem={
+                        ({ item, index }) => (
+                            <CharacterCard character={item} index={index} />
+                        )
+                    }></FlatList>
+            )
 
-        
+            }
+        </>
+
     );
 }
