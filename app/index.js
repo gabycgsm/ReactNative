@@ -1,14 +1,21 @@
-import { StatusBar, StyleSheet, View } from "react-native";
+import { StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Logo from "../components/Logo";
 import { Main } from "../components/Main";
+import { Link } from "expo-router";
 
 export default function Index() {
-  return(
+  return (
     <View style={styles.container}>
-        <StatusBar style='light' />
-        <Logo style={styles.logo} />
+      <StatusBar style='light' />
+      <Logo style={styles.logo} />
+      <Link href="/about" asChild>
+        <TouchableOpacity style={styles.aboutButton}>
+          <Text style={styles.aboutButtonText}>Acerca de</Text>
 
-        <Main></Main>
+        </TouchableOpacity>
+      </Link>
+
+      <Main></Main>
     </View>
   );
 }
@@ -24,5 +31,16 @@ const styles = StyleSheet.create({
   logo: {
     backgroundColor: '#fff',
     padding: 20
+  },
+  aboutButton: {
+    backgroundColor: '#007AFF',
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    borderRadius: 8,
+  },
+  aboutButtonText: {
+    color: '#fff',
+    fontSize: 16,
   }
+
 });
